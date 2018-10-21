@@ -38,28 +38,28 @@ check_login();
                          $query="SELECT   img ,id,`detials`,`address` FROM `places`";
                         $result=mysqli_query($conn,$query);
                          while($row=mysqli_fetch_assoc($result)){ 
-                         echo"
+                          echo"
    
-                        <div class='col-sm-6 col-lg-4'>
-                         <div class='card' style='width: 18rem ; height:50px;'>
-                          <img class='card-img-top'  src='images/".mysqli_real_escape_string($conn,$row['img'])."' height='200' width='200' class='img-thumnail' alt='Card image cap'>
-                          <div class='card-body'>
-                          <P>
-                           " .mysqli_real_escape_string($conn,$row['address']) ."
-                           </p>
-                           <p>
-                           </p>
-                           <a  class='btn btn-danger' role='button' href='delete_places.php?places=".mysqli_real_escape_string($conn, $row["id"] )."'>
-                           Delete</a>
-                           </div>
-                           <hr>
-                              </div>
+                    
+                          <div class='col-sm-6 col-lg-4'>
+                          <div class='card' style='width: 18rem;'>
+                           <img class='card-img-top'  src='images/".mysqli_real_escape_string($conn,$row['img'])."' height='200' width='200' class='img-thumnail' alt='Card image cap'>
+                           <div class='card-body'>
+                           <P>
+                            " .mysqli_real_escape_string($conn,$row['address'])."
+                            </p>
+                            
+                            <a  class='btn btn-danger' role='button' href='delete_places.php?places=".mysqli_real_escape_string($conn, $row["id"] )."'>
+                            Delete</a>
+                            </div>
+                            <hr>
+                               </div>
+                          
                          
-  	                  	
-             
-                          </div> ";
-                         }
-                         ?>
+              
+                           </div> ";
+                          }
+                          ?>
 
                   <div>
                   <div>
