@@ -80,6 +80,3 @@ include('inc/temp/footer.php');
 
 
 
-<?php
-include('inc/temp/footer.php');
-?>
