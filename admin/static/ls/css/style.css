@@ -1,0 +1,63 @@
+/*start navbar*/
+
+.bg-light {
+    background-color: #e0e7ef!important;
+}
+
+.navbar link {
+    font-size: 20px;
+}
+
+
+/*end navbar*/
+
+
+/*slider start*/
+
+.slider .carousel-item {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-bacground-size: cover;
+    background-size: cover;
+}
+
+
+/*over viwe  start*/
+
+.overviwe .container {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.overviwe .container p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+}
+
+
+/*over viw end*/
+
+
+/*card start*/
+
+.content .card .btn {
+    width: 100%;
+}
+
+.contenth .card {
+    align-content: center;
+}
+
+.content_place .card {
+    display: block;
+    float: center;
+}
+
+
+/* footer*/
+
+.overviwee {
+    padding: 40px;
+    margin: 20px;
+    background-color: rebeccapurple;
+}

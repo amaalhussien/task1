@@ -1,0 +1,70 @@
+/*
+frist color=#3b9a9c
+seconde color=#fef4a9
+*/
+
+.bg-light {
+    background-color: #acc1c5!important;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+/*log in end*/
+
+
+/*a in card ma */
+
+.overviwe {
+    margin: 56px;
+    padding: 20px;
+}
+
+.overviwe .btn {
+    margin: 5px;
+    padding: 10px;
+    padding-top: 13px;
+    border-bottom-width: 4%;
+}
+
+.overviwe .btn-danger {
+    max-width: 100%;
+    color: black;
+    background-color: #b4bcd0;
+    border-color: #5b7e3b21;
+}
+
+.overviwe .card-header {
+    background-color: #b4bcd0;
+}
+
+.overviwe img {
+    width: 30%;
+    padding: .4rem;
+    margin: 4rem;
+    display: initial;
+}
+
+.posts-wrapper {
+    width: 50%;
+    margin: 20px auto;
+    border: 1px solid #eee;
+    text-align: center;
+}
+
+.footer {
+    /*  position: fixed; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #b4bcd0 !important;
+    color: black;
+    text-align: center;
+}
+
+
+/*style card edit content*/
