@@ -17,22 +17,22 @@ check_login();
         <div class="form_register">
                      
 
-                            <form method="POST" action="add_places_submit.php" enctype="multipart/form-data">
+                            <form method="POST" action="add_delete_places.php" enctype="multipart/form-data">
                               <div class="form-group">
-                             <label for="text">catergoires</label>
+                             <label for="text">اسم المكان</label>
                                  <div class="input-group">
                                     <span class="input-group-addon"></span>
-                             <input id="text" type="text"  class="form-control" name="guide" placeholder="e.g:Restaurants">
+                             <input id="text" type="text"  class="form-control" name="guide" placeholder="اسم المكان" required>
                                 </div>
                              </div>
                              <div class="form-group">
-                             <label for="comment">Comment:</label>
-                             <textarea class="form-control" rows="5" id="comment" name="detials"></textarea>
+                             <label for="comment">وصف عن المكان</label>
+                             <textarea class="form-control" rows="5" id="comment" name="detials" required></textarea>
                              </div>
  
                              <div class="form-group">
-                              <label for="sel1">Select list:</label>
-                                <select class="form-control" id="sel1" name="catergo">
+                              <label for="sel1">اختر التصنيف</label>
+                                <select class="form-control" id="sel1" name="catergo"  required >
                                 
                                  <?php
                                  $query="SELECT name FROM `catergoires`";
@@ -54,16 +54,16 @@ check_login();
 
                           
                             <div class="form-group">
-                             <label for="text">location in map URL:</label>
+                             <label for="text">رابط موقع المكان في خريطه</label>
                                  <div class="input-group">
                                     <span class="input-group-addon"></span>
                                  <input id="text" type="text"  class="form-control" name="location" placeholder="location in map">
                                 </div>
                           
                             <div class="form-group">
-                             <label for="text">add  img</label>
+                             <label for="text">أضف صورة</label>
                              <div class="input-img">
-                              <input type="hidden" name="size" value="1000000">
+                              <input type="hidden" name="size" value="10000000">
                          	<div>
                             <input type="file" name="image">
                            </label>

@@ -49,7 +49,7 @@ check_login();
                             " .mysqli_real_escape_string($conn,$row['address'])."
                             </p>
                             
-                            <a  class='btn btn-danger' role='button' href='delete_places.php?places=".mysqli_real_escape_string($conn, $row["id"] )."'>
+                            <a  class='btn btn-danger' role='button' href='add_delete_places.php?places=".mysqli_real_escape_string($conn, $row["id"] )."'>
                             Delete</a>
                             </div>
                             <hr>

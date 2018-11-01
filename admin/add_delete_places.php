@@ -32,9 +32,9 @@ include_once('database/connected_db.php');
      
     if(!empty($errors)){
         $_SESSION['errors']=$errors;
-       // redicrt('add_catergoires.php.php');
+        redicrt('add_places.php');
     } 
-    // execute query
+    //uplode image to file 
     mysqli_query($conn, $sql);
     if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
        
@@ -53,4 +53,30 @@ include_once('database/connected_db.php');
 
 
 }
+
+/* Delete places from database */
+if(isset($_GET["places"]))
+{
+
+$id_cate=mysqli_real_escape_string($conn,$_GET["places"]);
+$id1=(int)$id_cate;
+$sql="DELETE FROM `places` WHERE id={$id1} LIMIT 1";
+$result=mysqli_query($conn,$sql);
+if ( $result && mysqli_affected_rows($conn)>0) {
+   
+   
+    $_SESSION['msg']=secusse_msg_delete();
+    redicrt("places.php");
+
+}else{
+
+    $_SESSION['msg']= error_msg_delete();
+    redicrt("places.php");
+}
+}
+
+
+
+
+
 ?>
