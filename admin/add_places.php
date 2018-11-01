@@ -57,15 +57,15 @@ check_login();
                              <label for="text">رابط موقع المكان في خريطه</label>
                                  <div class="input-group">
                                     <span class="input-group-addon"></span>
-                                 <input id="text" type="text"  class="form-control" name="location" placeholder="location in map">
+                                 <input id="text" type="text"  class="form-control" name="location" placeholder="location in map" required>
                                 </div>
                           
                             <div class="form-group">
                              <label for="text">أضف صورة</label>
                              <div class="input-img">
-                              <input type="hidden" name="size" value="10000000">
+                              <input type="hidden" name="size" value="10000000" required >
                          	<div>
-                            <input type="file" name="image">
+                            <input type="file" name="image"  >
                            </label>
                           
                              </div>

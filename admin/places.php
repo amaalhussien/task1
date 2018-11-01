@@ -52,8 +52,8 @@ check_login();
                             <a  class='btn btn-danger' role='button' href='add_delete_places.php?places=".mysqli_real_escape_string($conn, $row["id"] )."'>
                             Delete</a>
                             </div>
-                            <hr>
-                               </div>
+                      
+                            </div>
                           
                          
               
