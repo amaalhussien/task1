@@ -5,7 +5,48 @@ include('inc/temp/navbar.php');
 include_once('inc/session/session.php');
 include_once('inc/function/function.php');
 include_once('database/connected_db.php'); 
-check_login();
+check_loginadmin();
+
+
+
+//submit edit start
+if(isset($_POST['submit'])){
+   if(isset($_SESSION['user_name'])&& $_SESSION['type']==1)
+   
+    {
+    $id=$_SESSION['user_id'];
+    $username=mysqli_real_escape_string($conn,check_empty(check_input_admin($_POST["username"])));
+    $email=mysqli_real_escape_string($conn,check_empty(check_input_admin($_POST["email"])));
+    $opt=(int)$_POST["optradio"];
+    $pass=mysqli_real_escape_string($conn,check_empty(check_input_admin($_POST["pass"])));
+    $pass=check_lenghtpaa($_POST["pass"],24,8);
+    $pass1=password_hash($pass,PASSWORD_BCRYPT);
+    
+      
+     if(!empty($errors)){
+         $_SESSION['errors']=$errors;
+         redicrt('edit_info.php');
+     } 
+     
+     
+  
+     $sql="UPDATE  `users_or_admin` SET`user_name`='{$username}',`email`='{$email}', `password`='{$pass1}'
+     , `type`='{$opt}' WHERE id='{$id}'";
+    
+    
+    if (mysqli_query($conn, $sql) && mysqli_affected_rows($conn)>0) {
+     $_SESSION['msg']=secusse_msg_admin();
+       redicrt("admin.php");
+    }else{
+        $_SESSION['msg']=error_msg_edit_info();
+        redicrt("edit_info.php");
+        
+    }
+
+}
+}
+//end submit code for edit
+
 
 ?>
 
@@ -40,7 +81,7 @@ if(isset($_SESSION['user_name'])){
      {
          
 
-         echo '<form  action="edit_submit.php" method="POST">';  
+         echo '<form  action="edit_info.php" method="POST">';  
          echo '<div class="form-group"> '; 
          echo '<label for="text">username</label>';   
          echo '<div class="input-group">'; 

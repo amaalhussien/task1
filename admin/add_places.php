@@ -5,19 +5,70 @@ include('inc/temp/header.php');
 include_once('inc/session/session.php');
 include_once('inc/function/function.php'); 
 include_once('database/connected_db.php');
-check_login();
+check_loginadmin();
+
+if (isset($_POST['upload'])) {
+    //get id_catergo
+    $cater=$_POST['catergo'];
+    $sql="SELECT  id FROM `catergoires` WHERE `name`='{$cater}' LIMIT 1";
+    $result=mysqli_query($conn,$sql);
+    $row=mysqli_fetch_assoc($result);
+    $id=$row['id'];
+ // Get image name
+ $image = $_FILES['image']['name'];
+
+   $opt=(int)$_POST["optradio"];
+   $address=mysqli_real_escape_string($conn,check_empty(check_input($_POST["guide"])));
+ $detials=mysqli_real_escape_string($conn,check_empty(check_input($_POST["detials"])));
+ $location=mysqli_real_escape_string($conn,check_empty(check_input($_POST["location"])));
+
+
+ // image file directory
+ $target ="images/".basename($image);
+
+ $sql = "INSERT INTO  `places`(`id_catergo`,`detials`,`address`,`img`,`location`,`status`)
+  VALUES ($id,'$detials','$address','$image','$location',$opt)";
+  
+ if(!empty($errors)){
+     $_SESSION['errors']=$errors;
+     redicrt('add_places.php');
+ } 
+ // uplode img to file 
+ mysqli_query($conn, $sql);
+ if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+    
+ }else{
+     
+ }
+ if(mysqli_affected_rows($conn)>0) {
+   
+     $_SESSION['msg']=secusse_msg_add_paces();
+       redicrt("../index.php");
+    }else{
+        $_SESSION['msg']=error_msg_add();
+        redicrt("places.php");
+        
+    }
+
+
+}
+
 ?>
                             
 
 
 
     <div class="header">
-        <h2>Add places</h2>
+        <h2>اضافة مكان</h2>
+        <?php echo msg(); ?>
+            <?php $errors=er(); ?>
+            <?php errors_function($errors);
+               ?>
         </div>     
         <div class="form_register">
                      
 
-                            <form method="POST" action="add_delete_places.php" enctype="multipart/form-data">
+                            <form method="POST" action="add_places.php" enctype="multipart/form-data">
                               <div class="form-group">
                              <label for="text">اسم المكان</label>
                                  <div class="input-group">
@@ -63,9 +114,9 @@ check_login();
                             <div class="form-group">
                              <label for="text">أضف صورة</label>
                              <div class="input-img">
-                              <input type="hidden" name="size" value="10000000" required >
+                              <input type="hidden" name="size" value="10000000" >
                          	<div>
-                            <input type="file" name="image"  >
+                            <input type="file" name="image"  required>
                            </label>
                           
                              </div>
@@ -84,7 +135,7 @@ check_login();
 
                      	<div>
                          
-  	                  	<button class="btn  btn-block "   type="submit" name="upload" >upload</button>
+  	                  	<button class="btn btn-block "   type="submit" name="upload" >upload</button>
                         </div> 
                       </form>
                           

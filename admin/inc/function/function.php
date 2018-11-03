@@ -9,6 +9,14 @@ function check_login(){
     }
 }
 
+
+
+function check_loginadmin(){
+    if(!(isset($_SESSION['user_id'])&&$_SESSION['type']==1)){
+        redicrt('login.php');
+    }
+}
+
 function secusse_msg_admin(){
     $emsg="<div class='alert alert-success alert-dismissible'>";
     $emsg.="<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>";
@@ -189,19 +197,19 @@ function check_input_admin($data){
     return $data;
 }
 
-/*function check_lenght($data,$max,$min){
+function check_lenghtpass($data,$max,$min){
 global $errors ;
 if(strlen($data)<$min)
 {
-   $errors['tooshort']="input is too short ";
+   $errors['tooshort']="password is short ";
 
 }elseif(strlen($data)>$max){
-   $errors['toolong']="input is long";
+   $errors['toolong']="password is long";
 
 }else{
    return $data;
 }
-}*/
+}
 
 function check_empty($data){
     global $errors;

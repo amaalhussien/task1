@@ -5,9 +5,37 @@ include('inc/temp/navbar.php');
 include_once('inc/session/session.php');
 include_once('inc/function/function.php'); 
 include_once('database/connected_db.php');
-check_login();
+check_loginadmin();
 
 ?>
+<?php
+//delete admin 
+if(isset($_GET["admin"]))
+{
+  $type=$_SESSION["type"];
+  if($type==1){
+  $id_cate=mysqli_real_escape_string($conn,$_GET["admin"]);
+  $id1=(int)$id_cate;
+  $query1="DELETE FROM `users_or_admin` WHERE  id=$id1 and `type`=1  LIMIT   1 ";
+  $result1=mysqli_query($conn,$query1);
+  if(mysqli_num_rows($result1)>0){
+
+        $_SESSION['msg']=error_msg_delete_caterg();
+        redicrt('admin.php');
+    }else{
+           $_SESSION['msg']=secusse_msg_delete();
+            redicrt("admin.php");
+
+ }   
+ } else{
+  $_SESSION['msg']=secusse_msg_delete();
+   redicrt("admin.php");
+ }
+ }
+?>
+
+
+
 <div class="main">
   <div class="title">
 <nav aria-label="breadcrumb">
@@ -46,7 +74,7 @@ check_login();
                                  <?php  
                                  echo "<td>".mysqli_real_escape_string($conn,$row['user_name'])."</td>";
                                 echo"<td>".mysqli_real_escape_string($conn,$row['email'])."</td>";
-                               echo"<td> <a  class='btn btn-danger' role='button' href='delete_user.php?user=".mysqli_real_escape_string($conn, $row["id"] )."'>Delete</a></td>";
+                               echo"<td> <a  class='btn btn-danger' role='button' href='admin.php?user=".mysqli_real_escape_string($conn, $row["id"] )."'>Delete</a></td>";
                                   
 
                                  
