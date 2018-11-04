@@ -5,7 +5,7 @@ include('inc/temp/header.php');
 include_once('inc/session/session.php');
 include_once('inc/function/function.php'); 
 include_once('database/connected_db.php');
-check_loginadmin();
+check_login();
 
 if (isset($_POST['upload'])) {
     //get id_catergo

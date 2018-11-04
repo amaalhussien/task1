@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
     $email=mysqli_real_escape_string($conn,check_empty(check_input_admin($_POST["email"])));
     $opt=(int)$_POST["optradio"];
     $pass=mysqli_real_escape_string($conn,check_empty(check_input_admin($_POST["pass"])));
-    $pass=check_lenghtpaa($_POST["pass"],24,8);
+    $pass=check_lenghtpass($_POST["pass"],24,8);
     $pass1=password_hash($pass,PASSWORD_BCRYPT);
 
      if(!empty($errors)){
@@ -90,7 +90,7 @@ if(isset($_POST['submit'])){
 
 
 <div>
-    <input type='submit' name='submit' value='insert'>
+    <input class="btn btn-block " type='submit' name='submit' value='insert'>
 </div>
    </form>
 

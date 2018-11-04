@@ -32,7 +32,7 @@ include_once('admin/database/connected_db.php');
                          <div class='card' style='width: 18rem ;align:center '>
                           <img class='card-img-top'  src='admin/images/".$row['img']."' height='200' width='200' class='img-thumnail' alt='Card image cap'>
                           <div class='card-body'>
-                          <a  class='btn btn-danger' role='button' href='places.php?cate=".mysqli_real_escape_string($conn, $row["id"] )."'>"
+                          <a  class='btn btn btn-block  btn-danger ' role='button' href='places.php?cate=".mysqli_real_escape_string($conn, $row["id"] )."'>"
                           
                           
                           .mysqli_real_escape_string($conn,$row['name'])."</a>
